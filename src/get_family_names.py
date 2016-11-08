@@ -97,8 +97,8 @@ def find_newest_file(name):
 
     matches = (date_regex.findall(f) for f in os.listdir(DATA_DIR))
     dates = sorted(set([l[0] for l in matches if l]), reverse=True)
-    for _date in dates:
-        filename = DATA_DIR + '{}-{}.xz'.format(_date, name)
+    for date in dates:
+        filename = DATA_DIR + '{}-{}.xz'.format(date, name)
         if os.path.isfile(filename):
             return filename
 
